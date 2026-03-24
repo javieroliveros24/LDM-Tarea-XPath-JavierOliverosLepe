@@ -1,18 +1,39 @@
-#LDM-Tarea-XPath-JavierOliverosLepe
-##En este poyecto he realizado 4 consultas a un archivo XML a traves de xpath, para filtrar datos.
+README AEE.: Reto de Refactorización
+--------------------------------------
+Javier Oliveros Lepe
+--------------------------------------
+--------------------------------------
+--------------------------------------
+PARA COMPLETAR LA MISION 1
+__________________________
+He sacado los atributos id, rack y estado del elemento servidor y los he metido en un group que se llama AtributoServidor asi ase puede reutilizar los campos en otras partes del documento sin repetir el código.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-###En la primera consulta teniamos que hacer lo siguiente:
-Reto 1: Filtrado por contenido y estado. El departamento de desarrollo necesita actualizar su bibliografía sobre diseño. Obtén los títulos de todos los recursos cuya categoría sea 'CSS' y que, además, estén marcados como disponibles (true).
-#### He ido por orden jerarquico hasta llegar a recurso, utilice el operador and para decirle las dos cosas que se deben cumplir para los datos que debe mostrarme y lo finalice con string para que solo me devuelva cadenas de texto.
+PARA COMPLETAR LA MISION 2
+__________________________
+He creado un xs group que se llama Componentes Hardware y he metido los elementos cpu, ram, gpu y discos y he aplicado una sequence ahora obliga  a quelos componentes aparezcan en ese orden y mejora la estructura.
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________
+PARA COMPLETAR LA MISION 3
+__________________________
+He puesto que gpu tenga minOccurs=0 para que pueda ser opcional y he ajustado el lemento disco con el maxOccurs=8 para limita el numero de und que puede tener ubn servidor
+__________________________________________________________________________
+__________________________________________________________________________
+__________________________________________________________________________
+PARA COMPLETAR LA MISION 4
+__________________________
+He puesto un elemento nuevo que se llama red y que utiliza el choice para que cada servidor teng o una ip fija o un valor de dhcp y nunca pueda tener las dos cosas .
+__________________________________________________________________________
+__________________________________________________________________________
+__________________________________________________________________________
+PARA COMPLETAR LA MISION 5
+__________________________
+He añadido una etiqueta auditoria al final de cada servidor para meter la fecha el tecnico y las notas y he usado xs:all para que se pueda nrellenar esos datos en cualquier orden,
+__________________________________________________________________________
+__________________________________________________________________________
+__________________________________________________________________________
+PARA COMPLETAR LA MISION 6
+__________________________
+He usado el unique para el atributo id para que los identificadores no se puedan duplicar.
 
-Reto 2: Atributos y negaciones. No todos nuestros recursos son documentos estándar. Queremos identificar aquellos materiales que tienen un formato especial. Selecciona los ID (el atributo id) de todos los recursos cuyo formato no sea "PDF".
-#### Fui hasta recurso y ahi le dije mediante el operador distinto que el formato debe ser distinto a PDF y tambien quiero el id y finalizo de nuevo con string.
-
-
-Reto 3: Manejo de múltiples nodos (Autores). La colaboración es clave en la ciencia. Localiza y muestra únicamente el nombre del primer autor de aquellos recursos que han sido publicados después del año 2015.
-### Fui de nuevo hasta recurso y le dije que me de los añosquer son mayores que 2015 y finalice de nuevo con string.
-
-###Reto 4: Consultas de complejidad técnica (Nivel y Categoría). Buscamos material para un seminario avanzado de arquitectura de datos. Necesitamos los títulos de los recursos que pertenezcan a las categorías de "XPath" o "XSLT" y que tengan un nivel de dificultad de 5.
-### La ultima consulta me ha dado fallo y aun no se porque, este es el error.
- XError:Required cardinality of value in 'function Q{com.functions.ext}createContextElement()' expression is exactly one; supplied value is empty; code:XTTE0780
- #Lo mirare detenidamente con mas tiempo y lo arreglare
+--Creo que he ahorrado entre 10 y 20 lineas de código.
+--Si itentara poner 2 servidores con el mismo id habria imcumplido una restriccion de integridad que puse en el XSD
